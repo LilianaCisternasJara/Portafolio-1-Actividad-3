@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegistroJquery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+   
+</head>
+<body>
+    <h1 style="color: rgb(163, 108, 214);">Por favor ingresa tus datos</h1>
+    <div class="container">
+    <form id="formulario">
+        <div>
+            <label> Nombres </label>
+            <input type="text" class="campo" id="name" name="name">
+           
+            <label> Primer apellido </label>
+            <input type="text" class="campo" id="firstName" name="firstName">
+            <label> Segundo apellido </label>
+            <input type="text" class="campo" id="secondName" name="secondName">
+
+        </div>
+        <br><br>
+        <div>
+            <label> Edad </label>
+            <input type="number" class="campo" id="age" min="1" max="100" name="age">
+            
+        </div>
+        <br><br>
+        <div>
+            <label> Domicilio </label>
+            <input type="text" class="campo" id="address" name="address">
+           
+        </div>
+        <br><br>
+        <div>
+            <label for="allergy">¿Es alérgico a algún medicamento?</label>
+            <select name="combo">
+                <option value="1">Si</option>
+                <option value="2">No</option>
+            </select>
+        </div>
+        <br><br>
+        <div>
+            <label for="remedies"> Medicamentos contraindicados </label>
+            <input type="text" name="remedies" id="remedies">
+        
+        </div>
+        <br><br><br>
+        <input type="submit" id="benviar" value="Aceptar" class="boton"></div>
+        </div>
+
+    </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+
+   <script type="text/javascript">
+    
+
+  $().ready(()=>{ 
+      console.log("ready")
+      $("#formulario").validate({
+rules:{
+    name: {
+        required: true
+
+    },
+    firstName: {
+        required: true
+    },
+    secondName: {
+        required: true
+    },
+    age: {
+        required: true,
+    },
+    address: {
+        required: true
+    }
+}
+  })
+  
+
+    
+       $("#benviar").click(function() {
+           if($("#formulario").valid()== false){
+               return;
+           } 
+            let nombres = $("#name").val();
+            let papellido = $("#firstName").val();
+            let sapellido = $("#secondName").val();
+            let edad = $("#age").val();
+            let domicilio = $("#address").val();
+console.log(nombres)
+        })
+        //$(document).ready(function(){
+           // $("#formulario").validate({
+         //rules:{
+
+         //}
+
+
+          //  });
+        //});
+          // $("#bEnviar").click(function(){
+         //let nombres=$("#name").val();    
+         //let papellido=$("#firstName").val();
+         //let sapellido=$("#secondName").val();
+         //let edad=$("#age").val();
+         //let domicilio=$("#address").val();
+          //if(nombres == ""){
+            //$("#mensaje1").fadeIn();
+          //    return false;
+        
+
+        });
+</script>
+</body>
+</html>
